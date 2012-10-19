@@ -1,0 +1,72 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	border: none;
+}
+
+#job_1 {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#job_2 {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	float: left;
+	height: 100%;
+	width: 50%;
+}
+ 
+.inner {
+	border: 0px solid gray;
+	text-align: center;
+	height:100%;
+}
+
+.innerContainer {
+	padding-top: 5%;
+	height: ${it.rowsHeight}%;
+}
+
+#jobtitle {
+	font-size: 3em;
+	font-weight: bold;
+	height: 60px;
+	padding: 0 10px;
+	width: 600px;
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+.SUCCESS * {
+	background-color: #BFD4FF;
+	color: #0041C4;
+}
+
+.FAILURE * {
+	background-color: #FF9180;
+	color: #B30700;
+}
+
+.UNSTABLE * {
+	background-color: #FFF780;
+	color: #B3B000;
+}
+
+.NOT_BUILD * {
+	background-color: #eee;
+	color: #777;
+}
+
+.DISABLED * {
+	background-color: #eee;
+	color: #555;
+}
