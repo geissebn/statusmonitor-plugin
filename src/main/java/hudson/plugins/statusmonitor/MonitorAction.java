@@ -2,6 +2,9 @@ package hudson.plugins.statusmonitor;
 
 import hudson.Extension;
 import hudson.model.*;
+import hudson.tasks.junit.TestAction;
+import hudson.tasks.junit.TestResultAction;
+
 import org.kohsuke.stapler.export.Exported;
 import org.kohsuke.stapler.export.ExportedBean;
 
@@ -72,6 +75,40 @@ public class MonitorAction implements RootAction {
 			result = "NOT_BUILD";
 		}
 		return result;
+	}
+	
+	public boolean hasTestsCounts(AbstractProject project) {
+		return getLastTestResult(project) != null;
+	}
+	
+	public int getFailedTestsCount(AbstractProject project) {
+		TestResultAction testResult = getLastTestResult(project);
+		return testResult == null ? 0 : testResult.getFailCount();
+	}
+	
+	public int getSkippedTestsCount(AbstractProject project) {
+		TestResultAction testResult = getLastTestResult(project);
+		return testResult == null ? 0 : testResult.getSkipCount();
+	}
+	
+	public int getSuccededTestsCount(AbstractProject project) {
+		TestResultAction testResult = getLastTestResult(project);
+		return testResult == null ? 0 : (testResult.getTotalCount() - testResult.getFailCount() - testResult.getSkipCount());
+	}
+	
+	private TestResultAction getLastTestResult(AbstractProject project) {
+		if ((project.getLastCompletedBuild() != null) && (project.getLastCompletedBuild().getResult() != null)) {
+			if (project.isDisabled()) {
+				return null;
+			}
+			else {
+				return project.getLastCompletedBuild().getAction(TestResultAction.class);
+			}
+		}
+		else {
+			return null;
+		}
+		
 	}
 
 

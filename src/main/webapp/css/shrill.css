@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700);
+
+html, body {
+	margin: 0;
+	padding: 0px 2px 0px 0px;
+	height: 100%;
+	border: none;
+	font-family: 'Ubuntu', 'Exo', sans-serif, Arial;
+	color: #fff;
+	background-color: #000;
+}
+.jobbox {
+	height:12.5%;
+	overflow:hidden;
+	background-color: #000;
+}
+#job_1 {
+	margin: 0px 0px 14px 0px;
+	padding: 0;
+	height: 100%;
+	width: 50%;
+}
+#job_2 {
+	float: left;
+	height: 100%;
+	width: 50%;
+}
+.info {
+	font-size: 1.2em;
+	font-weight: 500;
+}
+.inner {
+	margin: 0px 0px 0px 5px;
+	height:100%;
+}
+.innerContainer {
+	margin: 4px 0px 0px 0px;
+	padding: 22px 0px 0px 20px;
+	height: 12.5%;
+	position: relative;
+}
+#jobtitle {
+	font-size: 1.8em;
+	font-weight: 500;
+	overflow: hidden;
+	margin: 2px 2px 2px 2px;
+}
+a {
+	text-decoration: none;
+}
+.SUCCESS * {
+	color: #fff;
+	background-color: #47D600;
+}
+.SUCCESS #jobtitle a {
+	padding: 0px 5px 0px 5px;
+	background-color: #246D00;
+}
+div.SUCCESS div {
+	-moz-border-top-left-radius: 14px;
+	border-top-left-radius: 14px;
+}
+.FAILURE * {
+	color: #fff;
+	background-color: #f00;
+}
+.FAILURE #jobtitle a {
+	padding: 0px 5px 0px 5px;
+	background-color: #890200;
+}
+div.FAILURE div {
+	-moz-border-top-left-radius: 14px;
+	border-top-left-radius: 14px;
+}
+.UNSTABLE * {
+	color: #fff;
+	background-color: #FFC300;
+}
+.UNSTABLE #jobtitle a {
+	padding: 0px 5px 0px 5px;
+	background-color: #6B5000;
+}
+div.UNSTABLE div {
+	-moz-border-top-left-radius: 14px;
+	border-top-left-radius: 14px;
+}
+.NOT_BUILD * {
+	color: #fff;
+	background-color: #bbb;
+}
+.NOT_BUILD #jobtitle a {
+	padding: 0px 5px 0px 5px;
+	background-color: #666;
+}
+div.NOT_BUILD div {
+	-moz-border-top-left-radius: 14px;
+	border-top-left-radius: 14px;
+}
+.DISABLED * {
+	color: #ddd;
+	background-color: #bbb;
+}
+.DISABLED #jobtitle a {
+	padding: 0px 5px 0px 5px;
+	background-color: #666;
+}
+div.DISABLED div {
+	-moz-border-top-left-radius: 14px;
+	border-top-left-radius: 14px;
+}
+.SUCCESS .info a {
+	color: #246D00;
+}
+.FAILURE .info a {
+	color: #890200;
+}
+.UNSTABLE .info a {
+	color: #6B5000;
+}
+.NOT_BUILD .info a {
+	color: #666;
+}
+.DISABLED .info a {
+	color: #666;
+}
+img.progresswheel {
+	float: right;
+	margin-right: 20px;
+	opacity:0.6;
+}
+
+div.testResults {
+	font-size: 1.5em;
+	position: absolute;
+	top: .4em;
+	right: 1em;
+	padding:2px;
+	border: none;
+	-moz-border-radius-topleft: 0px !important; 
+	border-top-left-radius: 0px !important;
+	background-color: rgba(0,0,0,.50);
+}
+div.testResults span {
+	display: block;
+	text-align: right;
+	background-color: transparent;
+}
+div.testResults span.succededTestsCount {
+	color: #47D600;
+}
+div.testResults span.skippedTestsCount {
+	color: #bbb;
+}
+div.testResults span.failedTestsCount {
+	color: #f00;
+}

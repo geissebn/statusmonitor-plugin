@@ -12,9 +12,10 @@
 	<link rel="stylesheet" type="text/css" href="${rootURL}/plugin/statusmonitor/css/classic.css" />
 </head>
 <body>
-	<j:set var="projectsArray" value="${it.projectsArray}"/>
+
+   	<j:set var="projectsArray" value="${it.projectsArray}"/>
 	<j:forEach var="row" items="${projectsArray}" varStatus="rowStatus">
-		<div style="height:${it.rowsHeight}%;overflow:hidden;">
+		<div class="jobbox" style="height:${it.rowsHeight}%;overflow:hidden;">
 
 			<j:forEach var="project" items="${row}">
 				<j:set var="resultClass" value="${it.getResult(project)}"/>
@@ -28,13 +29,13 @@
 
 							<span id="jobtitle">
 								<j:if test="${project.building}">
-									<img width="48px" height="48px" src="${rootURL}/plugin/statusmonitor/images/ajax-loader.gif" title="${%monitor.build.currently}"/>
+									<img class="progresswheel" width="48px" height="48px" src="${rootURL}/plugin/statusmonitor/images/ajax-loader.gif" title="${%monitor.build.currently}"/>
 								</j:if>
 								<a href="${rootURL}/${project.url}" title="Build Summary">${project.name}</a>
 							</span>
 							<br/>
 
-							<div style="font-size: 1.2em;">
+							<div class="info">
 								<j:choose>
 									<j:when test="${project.lastCompletedBuild.timestampString != null}">
 										<a class="${project.lastCompletedBuild.result}" href="${rootURL}/${project.url}${project.lastCompletedBuild.number}">#${project.lastCompletedBuild.number}</a>
@@ -45,6 +46,13 @@
 									</j:otherwise>
 								</j:choose>
 							</div>
+							<j:if test="${!project.building and it.hasTestsCounts(project)}">
+								<div class="testResults">
+									<span class="succededTestsCount">${it.getSuccededTestsCount(project)}</span>
+									<span class="skippedTestsCount">${it.getSkippedTestsCount(project)}</span>
+									<span class="failedTestsCount">${it.getFailedTestsCount(project)}</span>
+								</div>
+							</j:if>
 						</div>
 					</div>
 				</div>
