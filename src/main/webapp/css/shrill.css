@@ -134,13 +134,16 @@ img.progresswheel {
 
 div.testResults {
 	font-size: 1.5em;
+	min-width: 3.5ex;
 	position: absolute;
-	top: .4em;
-	right: 1em;
-	padding:2px;
+	top: 0;
+	right: 0;
+	padding: 2px 4px 2px 2px;
 	border: none;
 	-moz-border-radius-topleft: 0px !important; 
 	border-top-left-radius: 0px !important;
+	-moz-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 	background-color: rgba(0,0,0,.50);
 }
 div.testResults span {
@@ -155,5 +158,5 @@ div.testResults span.skippedTestsCount {
 	color: #bbb;
 }
 div.testResults span.failedTestsCount {
-	color: #f00;
+	color: #FFC300;
 }
