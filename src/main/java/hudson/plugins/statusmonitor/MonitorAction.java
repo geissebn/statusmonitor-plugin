@@ -2,7 +2,7 @@ package hudson.plugins.statusmonitor;
 
 import hudson.Extension;
 import hudson.model.*;
-import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.test.AbstractTestResultAction;
 
 import org.kohsuke.stapler.export.Exported;
 import org.kohsuke.stapler.export.ExportedBean;
@@ -81,33 +81,25 @@ public class MonitorAction implements RootAction {
 	}
 	
 	public int getFailedTestsCount(AbstractProject project) {
-		TestResultAction testResult = getLastTestResult(project);
+		AbstractTestResultAction testResult = getLastTestResult(project);
 		return testResult == null ? 0 : testResult.getFailCount();
 	}
 	
 	public int getSkippedTestsCount(AbstractProject project) {
-		TestResultAction testResult = getLastTestResult(project);
+		AbstractTestResultAction testResult = getLastTestResult(project);
 		return testResult == null ? 0 : testResult.getSkipCount();
 	}
 	
 	public int getSuccededTestsCount(AbstractProject project) {
-		TestResultAction testResult = getLastTestResult(project);
+		AbstractTestResultAction testResult = getLastTestResult(project);
 		return testResult == null ? 0 : (testResult.getTotalCount() - testResult.getFailCount() - testResult.getSkipCount());
 	}
 	
-	private TestResultAction getLastTestResult(AbstractProject project) {
-		if ((project.getLastCompletedBuild() != null) && (project.getLastCompletedBuild().getResult() != null)) {
-			if (project.isDisabled()) {
+	private AbstractTestResultAction getLastTestResult(AbstractProject project) {
+		if (project.isDisabled() || project.getLastCompletedBuild() == null) {
 				return null;
-			}
-			else {
-				return project.getLastCompletedBuild().getAction(TestResultAction.class);
-			}
 		}
-		else {
-			return null;
-		}
-		
+		return project.getLastCompletedBuild().getAction(AbstractTestResultAction.class);
 	}
 
 
