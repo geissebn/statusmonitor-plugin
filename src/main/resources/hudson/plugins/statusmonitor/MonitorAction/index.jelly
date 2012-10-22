@@ -9,7 +9,8 @@
 	<meta http-equiv="Refresh" content="30" />
 	<title>Hudson Build Monitor</title>
 	<link type="image/vnd.microsoft.icon" rel="shortcut icon" href="${rootURL}/plugin/statusmonitor/icons/monitor-16x16.png"/>
-	<link rel="stylesheet" type="text/css" href="${rootURL}/plugin/statusmonitor/css/classic.css" />
+	<!-- TODO: add a configuration option to switch between CSS files -->
+	<link rel="stylesheet" type="text/css" href="${rootURL}/plugin/statusmonitor/css/style.css" />
 </head>
 <body>
 

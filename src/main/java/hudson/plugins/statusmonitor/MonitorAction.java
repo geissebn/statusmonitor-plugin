@@ -2,7 +2,6 @@ package hudson.plugins.statusmonitor;
 
 import hudson.Extension;
 import hudson.model.*;
-import hudson.tasks.junit.TestAction;
 import hudson.tasks.junit.TestResultAction;
 
 import org.kohsuke.stapler.export.Exported;
